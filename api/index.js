@@ -13,4 +13,4 @@ app.get('/test', (req, res) => {
     .send({ message: 'Welcome, stranger' })
 } )
 
-app.listen(port, () => console.log(`server running at ${port}`) )
+app.listen(port, () => console.log(`server running at ${port}, over here stranger`) )
