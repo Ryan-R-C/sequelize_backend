@@ -15,7 +15,7 @@
 ### How to install it?
 
 ```sh
-npm install sequelize --save
+npm install sequelize sequelize-cli path
 ```
 
 #### And you will need to install one of this databases:
