@@ -1,0 +1,38 @@
+const database = require('../models')
+
+class UserController {
+  static async getAllUsers(req, res){
+    try {
+      const allUsers = await database.Pessoas.findAll()
+      return res.status(200).json(allUsers)  
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
+
+  static async getOneUser(req, res) {
+    const { id } = req.params
+    try {
+      const oneUser = await database.Pessoas.findOne( { 
+        where: { 
+          id: Number(id) 
+        }
+      })
+      return res.status(200).json(oneUser)
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
+
+  static async createUser(req, res) {
+    const newUser = req.body
+    try {
+      const newCreatedUser = await database.Pessoas.create(newUser)
+      return res.status(200).json(newCreatedUser)
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
+}
+
+module.exports = UserController
